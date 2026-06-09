@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея космоса</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">🚀 CosmoWorld</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="gallery.html" class="active">Галерея</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="gallery-container">
+        <div class="controls-panel">
+            <div class="stats">
+                <span class="stat-item"><i class="fas fa-image"></i> Изображений: <span id="image-counter">0</span></span>
+                <span class="stat-item"><i class="fas fa-heart"></i> Всего лайков: <span id="total-likes">0</span></span>
+            </div>
+            <div class="view-controls">
+                <button id="grid-view" class="view-btn active"><i class="fas fa-th"></i> Сетка</button>
+                <button id="list-view" class="view-btn"><i class="fas fa-list"></i> Список</button>
+            </div>
+        </div>
+
+        <div class="filters">
+            <h3><i class="fas fa-filter"></i> Фильтры:</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="planets">Планеты</button>
+                <button class="filter-btn" data-filter="stars">Звёзды</button>
+                <button class="filter-btn" data-filter="nebula">Туманности</button>
+            </div>
+        </div>
+
+        <div class="gallery-grid" id="image-gallery">
+            <!-- Карточка 1: Планета -->
+            <article class="image-card" data-category="planets">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1614313913007-2d4e0e7b9c1f?w=300&h=200&fit=crop" alt="Красная планета Марс" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="1"><i class="far fa-heart"></i> <span class="like-count">0</span></button>
+                        <button class="zoom-btn" onclick="window.open(this.previousElementSibling.previousElementSibling.src,'_blank')"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Марс — красная планета</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 12 мая 2024</p>
+                    <p class="image-description">Марс — четвёртая планета от Солнца, названа в честь римского бога войны. Здесь находится самый высокий вулкан в Солнечной системе — Олимп.</p>
+                    <div class="image-tags"><span class="tag">планета</span><span class="tag">марс</span></div>
+                </div>
+            </article>
+
+            <!-- Карточка 2: Звезда -->
+            <article class="image-card" data-category="stars">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=300&h=200&fit=crop" alt="Скопление звёзд" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="2"><i class="far fa-heart"></i> <span class="like-count">0</span></button>
+                        <button class="zoom-btn" onclick="window.open(this.previousElementSibling.previousElementSibling.src,'_blank')"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Звёздное скопление Плеяды</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 3 июня 2024</p>
+                    <p class="image-description">Плеяды — рассеянное скопление в созвездии Тельца, видимое невооружённым глазом. Состоит из горячих молодых звёзд.</p>
+                    <div class="image-tags"><span class="tag">звёзды</span><span class="tag">скопление</span></div>
+                </div>
+            </article>
+
+            <!-- Карточка 3: Туманность -->
+            <article class="image-card" data-category="nebula">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1506703719100-f0b3c5c4d5f3?w=300&h=200&fit=crop" alt="Туманность Орла" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="3"><i class="far fa-heart"></i> <span class="like-count">0</span></button>
+                        <button class="zoom-btn" onclick="window.open(this.previousElementSibling.previousElementSibling.src,'_blank')"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Туманность Орла</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 20 июля 2024</p>
+                    <p class="image-description">Знаменитая туманность, где телескоп Хаббл запечатлел «Столпы Творения» — гигантские колонны холодного газа и пыли.</p>
+                    <div class="image-tags"><span class="tag">туманность</span><span class="tag">орёл</span></div>
+                </div>
+            </article>
+
+            <!-- Карточка 4: Планета Юпитер -->
+            <article class="image-card" data-category="planets">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=300&h=200&fit=crop" alt="Юпитер и его Большое красное пятно" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="4"><i class="far fa-heart"></i> <span class="like-count">0</span></button>
+                        <button class="zoom-btn" onclick="window.open(this.previousElementSibling.previousElementSibling.src,'_blank')"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Юпитер — газовый гигант</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 15 августа 2024</p>
+                    <p class="image-description">Самая большая планета Солнечной системы. Её Большое красное пятно — гигантский шторм, бушующий уже несколько столетий.</p>
+                    <div class="image-tags"><span class="tag">планета</span><span class="tag">юпитер</span></div>
+                </div>
+            </article>
+
+            <!-- Карточка 5: Звезда (сверхновая) -->
+            <article class="image-card" data-category="stars">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?w=300&h=200&fit=crop" alt="Взрыв сверхновой" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="5"><i class="far fa-heart"></i> <span class="like-count">0</span></button>
+                        <button class="zoom-btn" onclick="window.open(this.previousElementSibling.previousElementSibling.src,'_blank')"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Взрыв сверхновой звезды</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 2 сентября 2024</p>
+                    <p class="image-description">Сверхновые — финальный этап жизни массивных звёзд. При взрыве выделяется энергии больше, чем за всю жизнь Солнца.</p>
+                    <div class="image-tags"><span class="tag">звезда</span><span class="tag">сверхновая</span></div>
+                </div>
+            </article>
+
+            <!-- Карточка 6: Туманность Киля -->
+            <article class="image-card" data-category="nebula">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=300&h=200&fit=crop" alt="Туманность Киля" class="gallery-img" loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="6"><i class="far fa-heart"></i> <span class="like-count">0</span></button>
+                        <button class="zoom-btn" onclick="window.open(this.previousElementSibling.previousElementSibling.src,'_blank')"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Туманность Киля</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 18 октября 2024</p>
+                    <p class="image-description">Одна из самых ярких туманностей на небе. Внутри неё находится звезда Эта Киля — одна из самых массивных известных звёзд.</p>
+                    <div class="image-tags"><span class="tag">туманность</span><span class="tag">киль</span></div>
+                </div>
+            </article>
+        </div>
+
+        <aside class="gallery-info">
+            <h3><i class="fas fa-lightbulb"></i> Интересный факт</h3>
+            <p>Свет от Солнца до Земли идёт 8 минут 20 секунд. Это значит, что если Солнце вдруг погаснет, мы узнаем об этом только через 8 минут.</p>
+        </aside>
+    </main>
+
+    <footer>
+        <p>© Иванов Иван, студент 1 курса, 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

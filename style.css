@@ -1,0 +1,543 @@
+/* ========== ОБЩИЙ СБРОС И ГЛОБАЛЬНЫЕ СТИЛИ (ПР1, ПР2) ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #1e2a3a;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* ========== ШАПКА И НАВИГАЦИЯ (Flexbox — ПР5) ========== */
+header {
+    background: linear-gradient(135deg, #0b2b3b, #1a4a6f);
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: rgba(255,255,255,0.1);
+    padding: 5px 15px;
+    border-radius: 30px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    background-color: rgba(255,255,255,0.05);
+}
+
+.nav-menu li a:hover {
+    background-color: rgba(255,255,255,0.25);
+    transform: translateY(-2px);
+}
+
+.nav-menu li a.active {
+    background-color: #ffb347;
+    color: #1e2a3a;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* ========== ОСНОВНОЙ КОНТЕНТ ГЛАВНОЙ СТРАНИЦЫ (ПР1) ========== */
+.intro {
+    background: white;
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.intro h1 {
+    color: #0b2b3b;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+.facts {
+    background: white;
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.facts h2 {
+    color: #1a4a6f;
+    margin-bottom: 20px;
+    border-left: 5px solid #ffb347;
+    padding-left: 15px;
+}
+
+.facts ul {
+    margin-left: 30px;
+}
+
+.facts li {
+    margin-bottom: 12px;
+}
+
+/* ========== ПОДВАЛ ========== */
+footer {
+    background: #1e2a3a;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 20px 20px 0 0;
+    font-size: 0.9rem;
+}
+
+/* ========== СТИЛИ ДЛЯ ГАЛЕРЕИ (CSS Grid — ПР3) ========== */
+.gallery-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.controls-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e9edf2;
+    padding: 15px 25px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stats {
+    display: flex;
+    gap: 25px;
+}
+
+.stat-item {
+    background: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.view-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.view-btn {
+    background: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.view-btn.active {
+    background: #1a4a6f;
+    color: white;
+}
+
+.filters {
+    background: white;
+    padding: 20px;
+    border-radius: 24px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: #eef2f5;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filter-btn.active {
+    background: #ffb347;
+    color: #1e2a3a;
+    font-weight: bold;
+}
+
+/* ===== CSS GRID ГАЛЕРЕИ ===== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Вид "Список" */
+.gallery-grid.list-view {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+}
+
+.card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.image-card:hover .gallery-img {
+    transform: scale(1.03);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.image-card:hover .image-overlay {
+    opacity: 1;
+}
+
+.like-btn, .zoom-btn {
+    background: rgba(255,255,255,0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.like-btn.liked {
+    background: #ff6b8b;
+    color: white;
+}
+
+.like-btn.liked i {
+    font-weight: 900;
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.image-title {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: #0b2b3b;
+}
+
+.image-date {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+.image-description {
+    margin-bottom: 15px;
+}
+
+.image-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: #eef2f5;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+}
+
+.gallery-info {
+    background: linear-gradient(135deg, #2b5876, #1e3c72);
+    color: white;
+    padding: 25px;
+    border-radius: 24px;
+    text-align: center;
+}
+
+/* ========== СТИЛИ СТРАНИЦЫ КОНТАКТОВ (ПР4, ПР5) ========== */
+.contacts-main h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0b2b3b;
+}
+
+.contacts-wrapper {
+    display: flex;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.info-card, .form-container {
+    flex: 1;
+    min-width: 260px;
+    background: white;
+    border-radius: 28px;
+    padding: 25px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    transition: 0.2s;
+}
+
+.info-card h2, .form-container h2 {
+    border-bottom: 3px solid #ffb347;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-bottom: 6px;
+}
+
+.info-card p {
+    margin: 15px 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    background: #eef2f5;
+    padding: 8px 18px;
+    border-radius: 40px;
+    text-decoration: none;
+    color: #1a4a6f;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.social-link:hover {
+    background: #1a4a6f;
+    color: white;
+}
+
+/* Стили формы и псевдоклассы/псевдоэлементы */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.required-star {
+    color: #e74c3c;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 16px;
+    font-family: inherit;
+    transition: 0.2s;
+    background: white;
+}
+
+/* Псевдоклассы :focus, :required */
+input:focus, select:focus, textarea:focus {
+    border-color: #ffb347;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,180,71,0.2);
+}
+
+input:required, textarea:required {
+    border-left: 5px solid #ffb347;
+}
+
+/* Псевдоэлемент ::placeholder */
+input::placeholder, textarea::placeholder {
+    color: #bbb;
+    font-style: italic;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group input {
+    width: auto;
+}
+
+/* :checked для чекбокса */
+.checkbox-group input:checked + label {
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.submit-btn {
+    background: #1a4a6f;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit-btn:hover {
+    background: #ffb347;
+    color: #1e2a3a;
+    transform: scale(1.02);
+}
+
+/* Псевдоэлемент ::after для обязательных полей (звёздочка уже есть, добавим дополнительно для демонстрации) */
+.form-group label::after {
+    content: "";
+    /* пусто, но звездочка уже стоит. Для примера псевдоэлемента добавим иконку перед заголовками */
+}
+
+.info-card h2::before, .form-container h2::before {
+    content: "✨ ";
+    font-size: 1.2rem;
+}
+
+/* ::selection */
+::selection {
+    background: #ffb347;
+    color: #1e2a3a;
+}
+
+/* Дополнительный блок (график, FAQ) */
+.extra-info {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.schedule, .faq {
+    background: white;
+    border-radius: 28px;
+    padding: 25px;
+    flex: 1;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.faq-item {
+    margin-top: 15px;
+    padding: 12px;
+    background: #f9fafb;
+    border-radius: 20px;
+}
+
+/* :nth-child для чередования стилей в FAQ */
+.faq-item:nth-child(odd) {
+    background: #eef2f5;
+}
+
+/* ========== АДАПТИВНОСТЬ (медиа-запросы) ========== */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-menu {
+        gap: 15px;
+    }
+    .controls-panel {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 25px;
+    }
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .contacts-wrapper {
+        flex-direction: column;
+    }
+    .extra-info {
+        flex-direction: column;
+    }
+}
